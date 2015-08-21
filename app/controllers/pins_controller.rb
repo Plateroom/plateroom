@@ -36,7 +36,7 @@ class PinsController < ApplicationController
 
   def destroy
     @pin.destroy
-    redirect_to pins_url, notice: 'Plate was successfully destroyed.'
+    redirect_to pins_url, notice: 'Plate was successfully deleted.'
   end
 
   private
@@ -47,7 +47,7 @@ class PinsController < ApplicationController
 
     def correct_user
       @pin = current_User.pins.find_by(id: params[:id])
-      redirect_to pins_path, notice: "Not authorized to edit this pin" if @pin.nil?
+      redirect_to pins_path, notice: "Not authorized to edit this plate" if @pin.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
