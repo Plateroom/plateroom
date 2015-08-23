@@ -11,24 +11,62 @@
       <%= link_to "Plateroom", root_path, class: "navbar-brand" %>
     </div>
 
+<!-- Collect the nav links, forms, and other content for toggling -->
+
+
+  <form class="navbar-form navbar-left">
+
+        <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go</button>
+              </span>
+            </div><!-- /input-group -->
+        </div><!-- /.row -->
+
+    </form>
+
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <% if User_signed_in? %>
-           <li>
-            <%= link_to new_pin_path do %>
+    <!--    <li><%= link_to "Home", root_path %></li>   -->
+    <!--       <li><%= link_to "About", about_path %></li>  -->
+      <% if User_signed_in? %>
+    <!--  <li>
+           <%= link_to new_pin_path do %>
               <span class="glyphicon glyphicon-plus"></span> New Plate
             <% end %>
           </li>
-          <li><%= link_to "Account Settings", edit_User_registration_path %></li>
-          <li><%= link_to "Log out", destroy_User_session_path, method: :delete %></li>
-          <% else %>
+    <li><%= link_to current_User.name, edit_User_registration_path %></li> -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
+              <%= current_User.name %> 
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+
+              <li><a href="#"><%= current_User.name %> </a></li>
+              
+              <li><%= link_to "Edit Registration", edit_User_registration_path %></li>
+              
+              <li role="separator" class="divider"></li>
+              
+              <li><%= link_to "Log out", destroy_User_session_path, method: :delete %></li>
+            </ul>
+        </li>
+      
+      <% else %>
+          
           <li><%= link_to "Sign in", new_User_session_path %></li>
-        <% end %>
+      
+      <% end %>
+    
+    </ul>
+  </li>
+
 
       </ul>
     </div><!-- /.navbar-collapse -->

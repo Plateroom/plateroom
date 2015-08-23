@@ -8,10 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
  <%= render 'layouts/header' %>
+
+
+	
+<% if User_signed_in? %>
+    			
+  <div class="container">
+  	<button type="button" class="btn btn-default">
+      
+          <%= link_to new_pin_path do %>
+              <span class="glyphicon glyphicon-plus">
+              </span> New Plate
+          <% end %>
+      
+  	</button>
+	</div>
+<% end %>
+
 	<div class="container">
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
+
 		<% end %>
 		<%= yield %>
 	</div>

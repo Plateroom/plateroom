@@ -81,6 +81,22 @@ Rails.application.configure do
   #Note to set this to your actual host
   config.action_mailer.default_url_options = { :host => 'http://dev-plateroom.herokuapp.com'}
 
+  #Trying to setUp emailer
+  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.perform_deliveries = true
+  #config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.default :charset => "utf-8"
+
+  #config.action_mailer.smtp_settings = {
+  #  address: "smtp.live.com",
+  #  port: 25,
+  #  domain: ENV["smtp.live,com"],
+  #  authentication: "plain",
+  #  enable_starttls_auto: true,
+  #  user_name: ENV["stefania_solari@hotmail.it"],
+  #  password: ENV["spa034net277"]
+  #  }
+
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
     :storage => :s3,
